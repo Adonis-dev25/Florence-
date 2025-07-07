@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florence Chileshe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            margin: 100;#8098ff
+            
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            color: #ff69b4;
+            text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff69b4;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ffd700;
+            text-shadow: 0 0 20px #ffd700;
+            margin-bottom: 10px;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 30px #ff69b4, 0 0 60px #ff69b4; }
+            to { text-shadow: 0 0 50px #ff69b4, 0 0 100px #ff69b4; }
+        }
+
+        /* Love Quotes Banner */
+        .quotes-banner {
+            width: 100%;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #dc143c);
+            color: white;
+            padding: 20px 0;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.5);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quotes-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 1s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .scrolling-quotes {
+            animation: scroll s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px #ffd700;
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 105, 180, 0.6);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .image-quote {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: #fff;
+            padding: 30px 20px 20px;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .image-card:hover .image-quote {
+            transform: translateY(0);
+        }
+
+        /* Scrolling Images */
+        .scrolling-images {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        .scrolling-content {
+            display: inline-block;
+            animation: scrollRight 60s linear infinite;
+        }
+
+        .scrolling-content img {
+            height: 300px;
+            margin-right: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.5);
+        }
+
+        @keyframes scrollRight {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .video-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .video-card video {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+        }
+
+        .video-title {
+            color: #ff69b4;
+            font-size: 1.3rem;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        /* Audio Section */
+        .audio-player {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .audio-player audio {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 15px;
+        }
+
+        .audio-title {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Love Messages */
+        .love-messages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .love-card {
+            background: linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(255, 20, 147, 0.2));
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .love-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
+        }
+
+        .love-card h3 {
+            color: #ff69b4;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .love-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff69b4;
+            transform: rotate(45deg);
+            animation: floatHeart 8s linear infinite;
+            z-index: 10;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #ff69b4;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -15px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: -15px;
+            top: 0;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                top: 100vh;
+                opacity: 0;
+                transform: rotate(45deg) scale(0.5);
+            }
+            10% {
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+            }
+            90% {
+                opacity: 1;
+                transform: rotate(45deg) scale(1);
+            }
+            100% {
+                top: -50px;
+                opacity: 0;
+                transform: rotate(45deg) scale(0.5);
+            }
+        }
+
+        /* Floating Text */
+        .floating-text {
+            position: absolute;
+            color: #ffd700;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px #ffd700;
+            animation: floatText 30s infinite;
+            opacity: 0.8;
+            z-index: 5;
+        }
+
+        @keyframes floatText {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Memory Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, #ff69b4, #ffd700);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: #ff69b4;
+            border: 4px solid #ffd700;
+            top: 20px;
+            border-radius: 50%;
+            left: 50%;
+            margin-left: -12px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .timeline-content h3 {
+            color: #ff69b4;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Interactive Elements */
+        .interactive-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .love-button {
+            background: linear-gradient(45deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+        }
+
+        .love-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .quotes-banner {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-text {
+                font-size: 2rem;
+            }
+        }
+
+        /* Special Effects */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-message {
+            font-size: 1.5rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .footer-quote {
+            font-size: 2rem;
+            font-style: italic;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1 class="main-title">💖 Florence ❤️ 💖</h1>
+        <p class="subtitle">A Love Story Written in Pixels and Memories</p>
+        <p style="color: #ff69b4; font-size: 1.2rem;">My Queen, My Heart, My Everything</p>
+    </div>
+
+    <!-- Love Quotes Banner -->
+    <div class="quotes-banner">
+        <div class="scrolling-quotes">
+            💕 In you, I've found the love of my life and my closest friend 💕 
+            You are the poem I never knew how to write, and this life is the story I always wanted to tell 💕 
+            Every love story is special, but ours is my favorite 💕 
+            You are the one I've been waiting for—forever looks good on us 💕 
+            If I know what love is, it is because of you, my beautiful Florence 💕 
+            You make my heart smile in ways I never knew possible 💕 
+            With you, every moment feels like a fairytale 💕
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Image Gallery Section -->
+        <div class="section">
+            <h2 class="section-title">✨ Our Beautiful Memories ✨</h2>
+            <div class="image-gallery">
+                <div class="image-card">
+                    <img src="/storage/emulated/0/Pictures/WhatsApp/IMG-20250426-WA0025.jpg" alt="Florence">
+                    <div class="image-quote">"Your smile is my favorite work of art"</div>
+                </div>
+                <div class="image-card">
+                    <img src="/storage/emulated/0/Pictures/facebook/1742341052847.jpg" alt="Florence">
+                    <div class="image-quote">"In your eyes, I see my future"</div>
+                </div>
+                <div class="image-card">
+                    <img src="/storage/emulated/0/Pictures/facebook/1742341059063.jpg" alt="Florentine">
+                    <div class="image-quote">"You are my sunshine on cloudy days"</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scrolling Images -->
+        <div class="section">
+            <h2 class="section-title">💫 Endless Beauty 💫</h2>
+            <div class="scrolling-images">
+                <div class="scrolling-content">
+                    <img src="/storage/emulated/0/Pictures/WhatsApp/IMG-20250426-WA0025.jpg" alt="Florentine">
+                    <img src="/storage/emulated/0/Pictures/facebook/1742341052847.jpg" alt="Florentine">
+                    <img src="/storage/emulated/0/Pictures/facebook/1742341059063.jpg" alt="Florentine">
+                    <img src="/storage/emulated/0/Pictures/WhatsApp/IMG-20250426-WA0025.jpg" alt="Florentine">
+                    <img src="/storage/emulated/0/Pictures/facebook/1742341052847.jpg" alt="Florentine">
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section">
+            <h2 class="section-title">🎬 Our Love Story in Motion 🎬</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <video src="/storage/emulated/0/Movies/WhatsApp/VID-20250119-WA0139.mp4" controls></video>
+                    <div class="video-title">Our Special Moments</div>
+                </div>
+                <div class="video-card">
+                    <video src=" " controls></video>
+                    <div class="video-title">Everything I Do, I Do It For You</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Audio Section -->
+        <div class="section">
+            <h2 class="section-title">🎵 The Soundtrack of Our Love 🎵</h2>
+            <div class="audio-player">
+                <div class="audio-title">Our Song</div>
+                <audio controls>
+                    <source src="/storage/emulated/0/snaptube/download/SnapTube Audio/Nationality(MP3_160K).mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <p style="color: #ffd700; margin-top: 15px;">Every melody reminds me of you</p>
+            </div>
+        </div>
+
+        <!-- Love Messages Section -->
+        <div class="section">
+            <h2 class="section-title">💌 Love Letters to My Queen 💌</h2>
+            <div class="love-messages">
+                <div class="love-card">
+                    <h3>My Promise</h3>
+                    <p>"I promise to love you with all my heart, to cherish every moment we share, and to stand by your side through every season of life."</p>
+                </div>
+                <div class="love-card">
+                    <h3>My Devotion</h3>
+                    <p>"You are not just my girlfriend, you are my best friend, my confidante, and the missing piece of my soul."</p>
+                </div>
+                <div class="love-card">
+                    <h3>My Future</h3>
+                    <p>"When I look at you, I see my future - filled with laughter, love, and countless beautiful memories yet to be made."</p>
+                </div>
+                <div class="love-card">
+                    <h3>My Everything</h3>
+                    <p>"You make ordinary moments extraordinary, and with you, I've found a love that feels like coming home."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Timeline -->
+        <div class="section">
+            <h2 class="section-title">📅 Our Love Timeline 📅</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Meeting</h3>
+                        <p>The day our eyes first met, and I knew my life would never be the same</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>First Date</h3>
+                        <p>Our first date was magical - filled with nervous laughter and endless conversation</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Falling in Love</h3>
+                        <p>The moment I realized I was completely and hopelessly in love with you</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Forever</h3>
+                        <p>Every day with you is a new chapter in our beautiful love story</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Section -->
+        <div class="interactive-section">
+            <h2 class="section-title">💝 For My Beloved Florence 💝</h2>
+            <button class="love-button" onclick="showLoveMessage()">Click for a Love Message</button>
+            <button class="love-button" onclick="createHearts()">Send Hearts</button>
+            <button class="love-button" onclick="playLoveSound()">Play Our Song</button>
+            <div id="loveMessage" style="margin-top: 20px; font-size: 1.3rem; color: #ff69b4;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-message">Forever Yours, My Beautiful Florence</div>
+        <div class="footer-quote">"In a sea of people, my eyes will always search for you"</div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="heart" style="left: 5%; animation-delay: 0s;"></div>
+    <div class="heart" style="left: 15%; animation-delay: 2s;"></div>
+    <div class="heart" style="left: 25%; animation-delay: 4s;"></div>
+    <div class="heart" style="left: 35%; animation-delay: 1s;"></div>
+    <div class="heart" style="left: 45%; animation-delay: 3s;"></div>
+    <div class="heart" style="left: 55%; animation-delay: 5s;"></div>
+    <div class="heart" style="left: 65%; animation-delay: 2.5s;"></div>
+    <div class="heart" style="left: 75%; animation-delay: 4.5s;"></div>
+    <div class="heart" style="left: 85%; animation-delay: 1.5s;"></div>
+    <div class="heart" style="left: 95%; animation-delay: 3.5s;"></div>
+
+    <!-- Floating Text -->
+    <div class="floating-text" style="left: 10%; animation-delay: 0s;">You are my forever</div>
+    <div class="floating-text" style="left: 50%; animation-delay: 10s;">My love, Florentine</div>
+    <div class="floating-text" style="left: 80%; animation-delay: 20s;">Queen of my heart</div>
+    <div class="floating-text" style="left: 30%; animation-delay: 15s;">My soulmate</div>
+    <div class="floating-text" style="left: 70%; animation-delay: 25s;">My everything</div>
+
+    <!-- Sparkles -->
+    <div class="sparkle" style="left: 20%; top: 30%; animation-delay: 0s;"></div>
+    <div class="sparkle" style="left: 60%; top: 50%; animation-delay: 0.5s;"></div>
+    <div class="sparkle" style="left: 80%; top: 20%; animation-delay: 1s;"></div>
+    <div class="sparkle" style="left: 40%; top: 70%; animation-delay: 1.5s;"></div>
+
+    <script>
+        // Interactive Functions
+        const loveMessages = [
+            "You are the most beautiful person inside and out, my darling Florentine! 💕",
+            "Every day with you feels like a dream come true! 🌟",
+            "Your smile lights up my entire world! ✨",
+            "I fall in love with you more and more each day! 💖",
+            "You are my heart, my soul, my everything! 👑",
+            "Thank you for being the perfect woman i was looking for 🌹",
+            "You make my life complete in every way! 💝",
+            "I'm so lucky to have you as my queen! 👸",
+            "Your love is my greatest treasure! 💎",
+            "Forever and always, you are my one and only! 💕"
+        ];
+
+        function showLoveMessage() {
+            const messageElement = document.getElementById('loveMessage');
+            const randomMessage = loveMessages[Math.floor(Math.random() * loveMessages.length)];
+            messageElement.textContent = randomMessage;
+            messageElement.style.animation = 'glow 2s ease-in-out';
+            
+            setTimeout(() => {
+                messageElement.style.animation = '';
+            }, 2000);
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 8000);
+                }, i * 200);
+            }
+        }
+
+        function playLoveSound() {
+            const audio = document.querySelector('audio');
+            if (audio) {
+                audio.play();
+            }
+        }
+
+        // Auto-create hearts periodically
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }, 3000);
+
+        // Auto-create sparkles
+        setInterval(() => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }, 1000);
+    </script>
+</body>
+</html>
